@@ -8,7 +8,8 @@ resp = client.messages.create(
     model="claude-sonnet-5-5",
     max_tokens=2000,
     system="You are a concise solutions architect.",
-    messages=[{"role": "user", "content": "When should I use a multi-agent design vs a single agent?"}],
+    messages = [{"role": "user", "content": "Where is my order?"}],
+    # messages=[{"role": "user", "content": "When should I use a multi-agent design vs a single agent?"}],
 )
 
 for block in resp.content:
