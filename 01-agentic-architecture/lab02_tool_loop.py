@@ -28,3 +28,4 @@ while True:
             results.append({"type": "tool_result", "tool_use_id": block.id,
                             "content": json.dumps(out)})
     messages.append({"role": "user", "content": results})
+    print("stop_reason:", resp.stop_reason)
