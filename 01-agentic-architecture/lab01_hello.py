@@ -10,5 +10,11 @@ resp = client.messages.create(
     system="You are a concise solutions architect.",
     messages=[{"role": "user", "content": "When should I use a multi-agent design vs a single agent?"}],
 )
-print(resp.content[0].text)
-print(resp.usage)   # watch token counts — relevant to context management
+
+for block in resp.content:
+    if block.type == "thinking":
+        print("--- THINKING ---\n", block.thinking)
+    elif block.type == "text":
+        print("--- ANSWER ---\n", block.text)
+
+print(resp.usage)
